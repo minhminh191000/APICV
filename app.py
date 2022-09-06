@@ -25,13 +25,13 @@ def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
     print(username,password)
-    login = db.session.query(UserCV).filter(UserCV.username == username and UserCV.passwd == password).first()
-    print(login)
-    if login == "False": 
-        return jsonify({"msg": "Bad username or password"}), 401
+    login = db.session.query(UserPublic).filter(UserPublic.username == username).first()
+    if login:
+        if login.password == password:
+            access_token = create_access_token(identity=username)
+            return jsonify(access_token=access_token) 
+    return jsonify({"msg": "Bad username or password"}), 401
 
-    access_token = create_access_token(identity=username)
-    return jsonify(access_token=access_token)
 
 
 # Protect a route with jwt_required, which will kick out requests
@@ -43,10 +43,10 @@ def protected():
     current_user = get_jwt_identity()
     return jsonify(logged_in_as=current_user), 200
 
-# SQLALCHEMY_DATABASE_URI': 'mysql://root:Minh123456@127.0.0.1:3306/flask_app
+# SQLALCHEMY_DATABASE_URI': 'mysql://root:Minh123456@127.0  .0.1:3306/flask_app
 obj = {
     'SECRET_KEY':'secret-key-goes-here',
-    'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_employee',
+    'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_cv',
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
     "MAX_CONTENT_LENGTH":500*1000*1000,
 }
@@ -67,7 +67,7 @@ from controller.HomeController import *
 # import model
 
 # from model.Employee import *
-from model.UserCV import *
+from model.user_cv import *
 # test = ViewController()
 
 # app.add_enpoint("/","test",test.index)
