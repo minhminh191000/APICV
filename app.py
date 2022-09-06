@@ -24,7 +24,10 @@ jwt = JWTManager(flask_app)
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
-    if username != "test" or password != "test":
+    print(username,password)
+    login = db.session.query(UserCV).filter(UserCV.username == username and UserCV.passwd == password).first()
+    print(login)
+    if login == "False": 
         return jsonify({"msg": "Bad username or password"}), 401
 
     access_token = create_access_token(identity=username)
@@ -43,7 +46,7 @@ def protected():
 # SQLALCHEMY_DATABASE_URI': 'mysql://root:Minh123456@127.0.0.1:3306/flask_app
 obj = {
     'SECRET_KEY':'secret-key-goes-here',
-    'SQLALCHEMY_DATABASE_URI':'mysql://root:Minh191000@127.0.0.1:3306/flask_employee',
+    'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_employee',
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
     "MAX_CONTENT_LENGTH":500*1000*1000,
 }
@@ -54,7 +57,7 @@ db = app.db
 # jwt = JWT(app, self.authenticate, self.identity)
 
 # import controller 
-from controller.TestController import *
+from controller.HomeController import *
 # from controller.UserController import *
 # from controller.Auth import *
 # from controller.EmpController import *
@@ -64,7 +67,7 @@ from controller.TestController import *
 # import model
 
 # from model.Employee import *
-# from model.User import *
+from model.UserCV import *
 # test = ViewController()
 
 # app.add_enpoint("/","test",test.index)
