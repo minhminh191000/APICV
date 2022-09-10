@@ -1,5 +1,10 @@
+# pull official base image
 FROM python:3.8
-COPY . /APICV
+
+# set work directory
 WORKDIR /APICV
-RUN pip install -r /APICV/requirements.txt
+COPY . /APICV
+RUN pip install -r requirements.txt 
+CMD flask db migrate -m "init db"
+CMD flask db upgrade
 CMD python app.py
