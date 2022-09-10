@@ -46,7 +46,7 @@ def protected():
 # SQLALCHEMY_DATABASE_URI': 'mysql://root:Minh123456@127.0  .0.1:3306/flask_app
 obj = {
     'SECRET_KEY':'secret-key-goes-here',
-    'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_cv',
+    'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@db:5432/flask_cv',
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
     "MAX_CONTENT_LENGTH":500*1000*1000,
 }
@@ -58,7 +58,7 @@ db = app.db
 
 # import controller 
 from controller.HomeController import *
-# from controller.UserController import *
+from controller.UserCVController import *
 # from controller.Auth import *
 # from controller.EmpController import *
 
