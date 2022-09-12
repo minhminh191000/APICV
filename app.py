@@ -36,19 +36,20 @@ def login():
 
 # Protect a route with jwt_required, which will kick out requests
 # without a valid JWT present.
-@flask_app.route("/protected", methods=["GET"])
+@flask_app.route("/get_current_user", methods=["GET"])
 @jwt_required()
-def protected():
+def get_current_user():
     # Access the identity of the current user with get_jwt_identity
     current_user = get_jwt_identity()
-    return jsonify(logged_in_as=current_user), 200
+    current_user = db.session.query(UserPublic).filter(UserPublic.username == current_user).first()
+    return current_user
 
 # SQLALCHEMY_DATABASE_URI': 'mysql://root:Minh123456@127.0  .0.1:3306/flask_app
 # postgres://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr
 obj = {
     'SECRET_KEY':'secret-key-goes-here',
-    'SQLALCHEMY_DATABASE_URI':'postgresql://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr',
-    # 'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_cv',
+    # 'SQLALCHEMY_DATABASE_URI':'postgresql://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr',
+    'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_cv',
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
     "MAX_CONTENT_LENGTH":500*1000*1000,
 }
@@ -61,6 +62,7 @@ db = app.db
 # import controller 
 from controller.HomeController import *
 from controller.UserCVController import *
+from controller.PersonalInformationController import *
 # from controller.Auth import *
 # from controller.EmpController import *
 
@@ -70,6 +72,7 @@ from controller.UserCVController import *
 
 # from model.Employee import *
 from model.user_cv import *
+from model.personal_information import *
 # test = ViewController()
 
 # app.add_enpoint("/","test",test.index)
