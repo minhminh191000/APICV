@@ -3,6 +3,8 @@ from flask import jsonify,json,request
 from flask_jwt_extended import jwt_required
 # from app import db,app
 from model.user_cv import *
+from model.personal_information import *
+from controller.PersonalInformationController import *
 
 class UserCVController:
 
@@ -21,6 +23,9 @@ class UserCVController:
                 return jsonify({"status":"fail","message":"Email already exists"})
             user = UserPublic(username=data.get("username"),email=data.get("email"),password=data.get("password"))
             db.session.add(user)
+            db.session.commit()
+            info = PersonalInformation(user.id,fullname="nguyen van A",birth_of_day=None,gender="Nam",phone="0123456789",address="Ha Noi")
+            db.session.add(info)
             db.session.commit()
             return jsonify({"status":200,"message":"Create USER"})
         return  jsonify({"status":400,"message":"fail"})

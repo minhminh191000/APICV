@@ -48,8 +48,8 @@ def get_current_user():
 # postgres://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr
 obj = {
     'SECRET_KEY':'secret-key-goes-here',
-    'SQLALCHEMY_DATABASE_URI':'postgresql://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr',
-    # 'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_cv',
+    # 'SQLALCHEMY_DATABASE_URI':'postgresql://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr',
+    'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_cv',
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
     "MAX_CONTENT_LENGTH":500*1000*1000,
 }
