@@ -44,6 +44,8 @@ def get_current_user():
     current_user = db.session.query(UserPublic).filter(UserPublic.username == current_user).first()
     return current_user
 
+
+
 # SQLALCHEMY_DATABASE_URI': 'mysql://root:Minh123456@127.0  .0.1:3306/flask_app
 # postgres://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr
 obj = {
@@ -63,6 +65,7 @@ db = app.db
 from controller.HomeController import *
 from controller.UserCVController import *
 from controller.PersonalInformationController import *
+from controller.job import *
 # from controller.Auth import *
 # from controller.EmpController import *
 
@@ -73,6 +76,7 @@ from controller.PersonalInformationController import *
 # from model.Employee import *
 from model.user_cv import *
 from model.personal_information import *
+from model.frofession import *
 # test = ViewController()
 
 # app.add_enpoint("/","test",test.index)

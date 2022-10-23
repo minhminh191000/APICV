@@ -57,13 +57,97 @@ class PersonalInformationController:
                 return jsonify({"status":404,"message":"update fail"})
 
 
+class InformationController:
+
+
+    # thong tin nguoi dung
+    @jwt_required()
+    def create(self):
+        if request.method == "POST":
+            # lay thon tin tu fontend tra ve
+                data = request.get_json()
+                userpublic_id = get_current_user().id
+                personalinformation = db.session.query(PersonalInformation).filter(PersonalInformation.userpublic_id == userpublic_id).first()
+                personalinformation_id = personalinformation.id 
+                name = data.get("name")
+                title_1 = data.get("title_1")
+                title_2 = data.get("title_2")
+                date_in = data.get("date_in")
+                date_out = data.get("date_out")
+                description_details = data.get("description_details")
+                # information = Information()
+                information = Information(name,title_1,title_2,date_in,date_out,description_details,personalinformation_id)
+                db.session.add(information)
+                db.session.commit()
+                return jsonify({"status":200,"message":"Create information"})
+
+    @jwt_required()
+    def update(self):
+         if request.method == "PUT":
+            try :
+                data = request.get_json()
+                userpublic_id = get_current_user().id
+                record_id = data.get("id")
+
+
+
+                personalinformation = db.session.query(PersonalInformation).filter(PersonalInformation.userpublic_id == userpublic_id).first()
+                information = db.session.query(Information).filter(Information.id == record_id).first()
+                if information.personalinformation_id == personalinformation.id :
+                    information.name = data.get("name")
+                    information.title_1 = data.get("title_1")
+                    information.title_2 = data.get("title_2")
+                    information.date_in = data.get("date_in")
+                    information.ate_out = data.get("date_out")
+                    information.description_details = data.get("description_details")
+                    db.session.commit()
+                    return  jsonify({"status":200,"message":"Updated information"})
+                else :
+                    return  jsonify({"status":404,"message":"User does not have permission"})
+            except :
+                return  jsonify({"status":404,"message":"recrd error !"})
+    @jwt_required()
+    def get(self):
+        userpublic_id = get_current_user().id
+        personalinformation = db.session.query(PersonalInformation).filter(PersonalInformation.userpublic_id == userpublic_id).first()
+        information = db.session.query(Information).filter(Information.personalinformation_id == personalinformation.id).all()
+        if information is not None:
+            list_information = []
+            for item in information:
+                list_information.append(item.obj_person())
+            return jsonify({"status":200,"data":list_information,"message":"records"})
+        else:
+            return jsonify({"status":200,"data":[],"message":"There are no records"})
+
+    
+    @jwt_required()
+    def delete(self):
+        if request.method == "POST":
+            data = request.get_json()
+            information = db.session.query(Information).filter(Information.id == data.get("id")).first()
+            if information is not None:
+                db.session.delete(information)
+                db.session.commit()
+                return jsonify({"status":200,"message":"Delete information successfully"})
+            return jsonify({"status":404,"message":"Delete information fail"})        
+
+            
+            
+
 
 info = PersonalInformationController()
 
 app.add_enpoint("/user/create_perinfo","create info",info.create,methods=["POST"])
 app.add_enpoint("/user/get_info","show info",info.get_info,methods=["GET"])
 app.add_enpoint("/user/update","update info",info.update,methods=["PUT"])
-# app.add_enpoint("/user/create","create_user",UserCV.create_user,methods=["POST"])
+
+
+infomation = InformationController()
+# app.ad
+app.add_enpoint("/infomation/create","create_infomation",infomation.create,methods=["POST"])
+app.add_enpoint("/infomation/update","update_infomation",infomation.update,methods=["PUT"])
+app.add_enpoint("/infomation/get","get_infomation",infomation.get,methods=["GET"])
+app.add_enpoint("/infomation/delete","delete_infomation",infomation.get,methods=["POST"])
 
             
 
