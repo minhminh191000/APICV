@@ -17,6 +17,16 @@ class JobInformation:
         obj_result = self.paging(page_id,result_per_page,json_object)
         return jsonify({"status":200,"data":obj_result})
         
+    def search_job(self):
+        page_id = request.args.get("page")
+        result_per_page = request.args.get("result_per_page")
+
+        
+        with open('controller/DataFrofession.json', 'r') as openfile:
+            json_object = json.load(openfile)
+
+
+
 
 
     def paging(self,page_id,result_per_page,json_object):
@@ -30,6 +40,8 @@ class JobInformation:
             "data": data_job
         }
         return obj_result
+
+    
             
 
 

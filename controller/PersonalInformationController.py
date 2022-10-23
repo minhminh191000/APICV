@@ -88,9 +88,6 @@ class InformationController:
                 data = request.get_json()
                 userpublic_id = get_current_user().id
                 record_id = data.get("id")
-
-
-
                 personalinformation = db.session.query(PersonalInformation).filter(PersonalInformation.userpublic_id == userpublic_id).first()
                 information = db.session.query(Information).filter(Information.id == record_id).first()
                 if information.personalinformation_id == personalinformation.id :
@@ -142,12 +139,13 @@ app.add_enpoint("/user/get_info","show info",info.get_info,methods=["GET"])
 app.add_enpoint("/user/update","update info",info.update,methods=["PUT"])
 
 
+
 infomation = InformationController()
 # app.ad
 app.add_enpoint("/infomation/create","create_infomation",infomation.create,methods=["POST"])
 app.add_enpoint("/infomation/update","update_infomation",infomation.update,methods=["PUT"])
 app.add_enpoint("/infomation/get","get_infomation",infomation.get,methods=["GET"])
-app.add_enpoint("/infomation/delete","delete_infomation",infomation.get,methods=["POST"])
+app.add_enpoint("/infomation/delete","delete_infomation",infomation.delete,methods=["POST"])
 
             
 
