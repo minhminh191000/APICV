@@ -1,0 +1,58 @@
+[
+  {
+    "id": "BEAEVN",
+    "name": "CÔNG TY CỔ PHẦN DỊCH VỤ VÀ PHÁT TRIỂN CÔNG NGHỆ BEAE VIỆT NAM",
+    "detail": {
+      "address": ["Ha Noi"],
+      "description": "Chúng tôi đã tạo ra nhiều giải pháp công nghệ để hỗ trợ những doanh nghiệp kinh doanh trực tuyến phát triển, biến việc kinh doanh trực tuyến trở nên dễ dàng hơn mọi đối tượng trên toàn thế giới"
+    }
+  },
+  {
+    "id": "MANULIFE",
+    "name": "CÔNG TY TNHH MANULIFE",
+    "detail": {
+      "address": ["Ha Noi"],
+      "description": "Bảo hiểm nhân thọ Manulife sẽ bảo vệ bạn và những người thân yêu trước những rủi ro tài chính như chi trả tiền viện phí để điều trị tại bệnh viện quốc tế tại Việt Nam."
+    }
+  },
+  {
+    "id": "AIA",
+    "name": "Công Ty TNHH Bảo Hiểm Nhân Thọ AIA (Việt Nam)",
+    "detail": {
+      "address": ["Ha Noi"],
+      "description": "Top Công ty Bảo hiểm hàng đầu Việt Nam."
+    }
+  },
+  {
+    "id": "MISA",
+    "name": "Công ty Cổ phần MISA",
+    "detail": {
+      "address": ["Ha Noi", "Ho Chi Minh"],
+      "description": "MISA Jointstock Company is one of the leading software companies in Vietnam. We develop and offer management softwares for small and medium enterprises, government and individual utility applications."
+    }
+  },
+  {
+    "id": "BOSCH",
+    "name": "CÔNG TY TNHH BOSCH GLOBAL SOFTWARE TECHNOLOGIES",
+    "detail": {
+      "address": ["Ha Noi", "Ho Chi Minh"],
+      "description": "The Bosch Group is a leading global supplier of technology and services. It employs roughly 394,500 associates worldwide."
+    }
+  },
+  {
+    "id": "ABALI",
+    "name": "CÔNG TY TNHH ABALI VIỆT NAM",
+    "detail": {
+      "address": ["Ha Noi"],
+      "description": "Công ty TNHH Abali Việt Nam hoạt động chính là kinh doanh các sản phẩm bảo vệ sức khỏe với sứ mệnh tiên phong trong việc đưa các sản phẩm Made in Vietnam ra thị trường quốc tế"
+    }
+  },
+  {
+    "id": "GELEX",
+    "name": "Công ty Cổ phần Tập đoàn GELEX",
+    "detail": {
+      "address": ["Ha Noi"],
+      "description": "GELEX GROUP - một trong những Tập đoàn đa ngành lớn nhất Việt Nam, dẫn đầu trong các lĩnh vực sản xuất công nghiệp"
+    }
+  }
+]

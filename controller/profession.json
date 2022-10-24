@@ -1,0 +1,50 @@
+[
+  {
+    "id": "MKT",
+    "name": "Marketing",
+    "detailed_occupation": [
+      {
+        "id": "DMKT",
+        "name": "Digital Marketing",
+        "detail": "Nhan vien ...."
+      }
+    ]
+  },
+  {
+    "id": "CNTT",
+    "name": "Information technology",
+    "detailed_occupation": [
+      {
+        "id": "PYTHONDEV",
+        "name": "Developer Python",
+        "detail": "Nhan vien ...."
+      },
+      {
+        "id": "JAVADEV",
+        "name": "Developer java",
+        "detail": "Nhan vien ...."
+      },
+      {
+        "id": "QC",
+        "name": "Tester/QC",
+        "detail": "Nhan vien ...."
+      }
+    ]
+  },
+  {
+    "id": "BH",
+    "name": "Insurance",
+    "detailed_occupation": [
+      {
+        "id": "TVTC",
+        "name": "Financial Advisor",
+        "detail": "Nhan vien ...."
+      },
+      {
+        "id": "CTVKD",
+        "name": "Business collaborators",
+        "detail": "Nhan vien ...."
+      }
+    ]
+  }
+]
