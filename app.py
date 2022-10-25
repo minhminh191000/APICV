@@ -1,25 +1,34 @@
+# from datetime import timedelta
+
 from flask import Flask
 from controller.FlaskAppWrapper import FlaskAppWrapper
 from flask import jsonify
 from flask import request
 
 from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_refresh_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+from flask_jwt_extended import get_jwt
+from flask_jwt_extended import unset_jwt_cookies
+from flask_jwt_extended import set_access_cookies
+# import redis
 
+
+# ACCESS_EXPIRES = timedelta(hours=1)
 
 
 flask_app = Flask(__name__)
 
-
+flask_app.config["JWT_TOKEN_LOCATION"] = ["headers", "cookies", "json", "query_string"]
 # Setup the Flask-JWT-Extended extension
 flask_app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
+# flask_app.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_EXPIRES
 jwt = JWTManager(flask_app)
 
 
-# Create a route to authenticate your users and return JWTs. The
-# create_access_token() function is used to actually generate the JWT.
+
 @flask_app.route("/login", methods=["POST"])
 def login():
     username = request.json.get("username", None)
@@ -28,9 +37,22 @@ def login():
     login = db.session.query(UserPublic).filter(UserPublic.username == username).first()
     if login:
         if login.password == password:
+            response = jsonify({"msg": "login successful"})
             access_token = create_access_token(identity=username)
+            set_access_cookies(response, access_token)
             return jsonify(access_token=access_token) 
     return jsonify({"msg": "Bad username or password"}), 401
+
+
+
+
+@flask_app.route("/logout", methods=["POST"])
+def logout_with_cookies():
+    response = jsonify({"status":200,"msg": "logout successful"})
+    unset_jwt_cookies(response)
+    return response
+
+
 
 
 
@@ -50,8 +72,8 @@ def get_current_user():
 # postgres://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr
 obj = {
     'SECRET_KEY':'secret-key-goes-here',
-    'SQLALCHEMY_DATABASE_URI':'postgresql://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr',
-    # 'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_cv',
+    # 'SQLALCHEMY_DATABASE_URI':'postgresql://qvoszmzjeubaam:09d3769eb47b52f41a3f70b5b259566b8f90be9f893b0c14035c3c916b4d96ff@ec2-52-200-5-135.compute-1.amazonaws.com:5432/d4adufef73bonr',
+    'SQLALCHEMY_DATABASE_URI':'postgresql://flask_user:1@localhost:5432/flask_cv',
     "SQLALCHEMY_TRACK_MODIFICATIONS": False,
     "MAX_CONTENT_LENGTH":500*1000*1000,
 }
