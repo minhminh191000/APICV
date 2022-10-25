@@ -7,6 +7,7 @@ from sqlalchemy.orm import backref
 
 
 
+
 class Careers(db.Model):
     # con
     
