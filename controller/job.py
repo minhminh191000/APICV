@@ -19,6 +19,53 @@ class JobInformation:
     
 
 
+
+
+    def get_salary(self):
+        page_id = request.args.get("page")
+        result_per_page = request.args.get("result_per_page")
+        with open('controller/DataFrofession.json', 'r') as openfile:
+            json_object = json.load(openfile)
+
+
+
+        salary = []
+        for item in json_object:
+                job_details =  item["job_details"]
+                for i in job_details:
+                    salary.append(i["general_information"]["salary"])
+        salary = set(salary)
+        salary = list(salary)
+        
+
+        # obj_result = self.paging(page_id,result_per_page,json_object)
+        return jsonify({"status":200,"data":salary})
+
+    def get_profession_all(self):
+        page_id = request.args.get("page")
+        result_per_page = request.args.get("result_per_page")
+        with open('controller/profession.json', 'r') as openfile:
+            json_object = json.load(openfile)
+
+
+
+        profession = []
+        for item in json_object:
+
+            vals = {
+                    "name":item["name"],
+                    "id":item["id"]
+                    }
+            profession.append(vals)
+        # profession = set(profession)
+        # profession = list(profession)
+        
+
+        # obj_result = self.paging(page_id,result_per_page,json_object)
+        return jsonify({"status":200,"data":profession})
+
+
+    
     # detail
     def detail_job(self,id):
         with open('controller/DataFrofession.json', 'r') as openfile:
@@ -195,6 +242,11 @@ app.add_enpoint("/company/detail_company/<id>","get_detail",jobinformation.get_d
 app.add_enpoint("/profession/get_all","get_profession",jobinformation.get_profession,methods=["GET"])
 app.add_enpoint("/profession/profession_detail/<id>","profession_detail",jobinformation.get_profession_detail,methods=["GET"])
 
+
+
+app.add_enpoint("/jobinformation/get_salary","get_salary",jobinformation.get_salary,methods=["GET"])
+app.add_enpoint("/profession/get_profession","get_profession_all",jobinformation.get_profession_all,methods=["GET"])
+# get_profession
             
 
 
