@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "company_id ": "BEAEVN",
+    "company_id": "BEAEVN",
     "name": "Nhân Viên Digital Marketing (Lương 15 - 25 Triệu) ",
     "company": "CÔNG TY CỔ PHẦN DỊCH VỤ VÀ PHÁT TRIỂN CÔNG NGHỆ BEAE VIỆT NAM",
     "deadline": "31/10/2022",
@@ -52,7 +52,7 @@
   },
   {
     "id": "2",
-    "company_id ": "MANULIFE",
+    "company_id": "MANULIFE",
     "name": "Nhân Viên Tư Vấn Tài Chính - Thu Nhập Từ 29 Đến 100 Triệu - Hồ Chí Minh",
     "company": "CÔNG TY TNHH MANULIFE",
     "deadline": "15/11/2022",
@@ -97,7 +97,7 @@
   },
   {
     "id": "3",
-    "company_id ": "MANULIFE",
+    "company_id": "MANULIFE",
     "name": "Cộng Tác Viên Kinh Doanh Manulife Vietnam Part Time/Full Time Tại Hà Nội",
     "company": "CÔNG TY TNHH MANULIFE",
     "deadline": "20/11/2022",
@@ -145,7 +145,7 @@
   },
   {
     "id": "3",
-    "company_id ": "AIA",
+    "company_id": "AIA",
     "name": "Chuyên Viên Tư Vấn Tài Chính - Kênh Liên Kết Ngân Hàng Vpbank (Hà Nội)",
     "company": "Công Ty TNHH Bảo Hiểm Nhân Thọ AIA (Việt Nam)",
     "deadline": "10/11/2022",
@@ -196,7 +196,7 @@
   },
   {
     "id": "4",
-    "company_id ": "MISA",
+    "company_id": "MISA",
     "name": "Nhân Viên Kiểm Thử Phần Mềm (Tester/QC)",
     "company": "Công ty Cổ phần MISA",
     "deadline": "30/11/2022",
@@ -244,7 +244,7 @@
   },
   {
     "id": "5",
-    "company_id ": "MISA",
+    "company_id": "MISA",
     "name": "Lập Trình Viên Backend - Backend Developer (.Net, .Net Core, Asp.Net , Python,...) - Upto 1700$ ",
     "company": "Công ty Cổ phần MISA",
     "deadline": "10/11/2022",
@@ -291,7 +291,7 @@
   },
   {
     "id": "6",
-    "company_id ": "BOSCH",
+    "company_id": "BOSCH",
     "name": "Java Developer (All Levels)",
     "company": "CÔNG TY TNHH BOSCH GLOBAL SOFTWARE TECHNOLOGIES",
     "deadline": "02/11/2022",
@@ -350,7 +350,7 @@
   },
   {
     "id": "7",
-    "company_id ": "BOSCH",
+    "company_id": "BOSCH",
     "name": "Java Developer (Intern)",
     "company": "CÔNG TY TNHH BOSCH GLOBAL SOFTWARE TECHNOLOGIES",
     "deadline": "02/11/2022",
@@ -397,7 +397,7 @@
   },
   {
     "id": "8",
-    "company_id ": "BOSCH",
+    "company_id": "BOSCH",
     "name": "Quality Assurance Officer (QA)",
     "company": "CÔNG TY TNHH BOSCH GLOBAL SOFTWARE TECHNOLOGIES",
     "deadline": "31/12/2022",
@@ -457,7 +457,7 @@
   },
   {
     "id": "9",
-    "company_id ": "ABALI",
+    "company_id": "ABALI",
     "name": "Chuyên Viên Digital Marketing ( Facebook Ads) Lương 9- 40 Triệu",
     "company": "CÔNG TY TNHH ABALI VIỆT NAM",
     "deadline": "18/11/2022",
@@ -507,7 +507,7 @@
   },
   {
     "id": "10",
-    "company_id ": "GELEX",
+    "company_id": "GELEX",
     "name": "Investor Relationship Manager",
     "company": "Công ty Cổ phần Tập đoàn GELEX",
     "deadline": "11/11/2022",

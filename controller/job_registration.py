@@ -69,6 +69,8 @@ class JobRegistration:
         for i in json_object:
             if int(i["id"]) == int(id):
                 return i["name"]
+
+
         
 
             

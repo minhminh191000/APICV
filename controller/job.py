@@ -109,6 +109,9 @@ class JobInformation:
 
 
 
+
+
+
     def get_all_company(self):
         page_id = request.args.get("page")
         result_per_page = request.args.get("result_per_page")
@@ -126,7 +129,32 @@ class JobInformation:
             if i["id"] == id:
                 company.append(i)
         return jsonify({"status":200,"data":company})
+
+    def get_job_company(self):
+        page_id = request.args.get("page")
+        result_per_page = request.args.get("result_per_page")
+        company_id = request.args.get("company_id")
+
+        with open('controller/DataFrofession.json', 'r') as openfile:
+            json_object = json.load(openfile)
+
+
+        list_job = []
+        for job in json_object:
+            # print(job)
+            # print(job["id"])
+            if company_id == job["company_id"]:
+                list_job.append(job)
+
+        obj_result = self.paging(page_id,result_per_page,list_job)
+        return jsonify({"status":200,"data":obj_result})
     # def search_company(self):
+
+
+
+
+
+
 
     def get_profession(self):
         page_id = request.args.get("page")
@@ -156,6 +184,8 @@ class JobInformation:
         return jsonify({"status":200,"data":profession})
 
 # get_profession,get_profession_detail
+
+
 
 
 
@@ -236,10 +266,12 @@ app.add_enpoint("/jobinformation/search_job","search_job",jobinformation.search_
 
 # get_profession,get_profession_detail
 app.add_enpoint("/company/get_all","get_all_company",jobinformation.get_all_company,methods=["GET"])
-app.add_enpoint("/company/detail_company/<id>","get_detail",jobinformation.get_detail,methods=["GET"])
+app.add_enpoint("/company/get_job_company","get_job_company",jobinformation.get_job_company,methods=["GET"])
+app.add_enpoint("/company/get_job_company/<id>","get_detail",jobinformation.get_detail,methods=["GET"])
 
 
 app.add_enpoint("/profession/get_all","get_profession",jobinformation.get_profession,methods=["GET"])
+app.add_enpoint("/profession/profession_detail/<id>","profession_detail",jobinformation.get_profession_detail,methods=["GET"])
 app.add_enpoint("/profession/profession_detail/<id>","profession_detail",jobinformation.get_profession_detail,methods=["GET"])
 
 
