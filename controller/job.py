@@ -272,7 +272,7 @@ app.add_enpoint("/company/get_job_company/<id>","get_detail",jobinformation.get_
 
 app.add_enpoint("/profession/get_all","get_profession",jobinformation.get_profession,methods=["GET"])
 app.add_enpoint("/profession/profession_detail/<id>","profession_detail",jobinformation.get_profession_detail,methods=["GET"])
-app.add_enpoint("/profession/profession_detail/<id>","profession_detail",jobinformation.get_profession_detail,methods=["GET"])
+# app.add_enpoint("/profession/profession_detail/<id>","profession_detail",jobinformation.get_profession_detail,methods=["GET"])
 
 
 

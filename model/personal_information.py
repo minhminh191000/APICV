@@ -19,17 +19,31 @@ class PersonalInformation(db.Model):
     userpublic_id = db.Column(db.Integer, db.ForeignKey("user_public.id"))
     userpublic = db.relationship("UserPublic", backref=backref("personalinformation", uselist=False))
 
+
+    avatar_url = db.Column(db.String(255))
+    position = db.Column(db.String(255))
+    about = db.Column(db.String(255))
+    skills = db.Column(db.String(255))
+
+
     information = db.relationship('Information', backref='personalinformation')
 
-    def __init__(self,userpublic_id,fullname, birth_of_day, gender,phone,address) -> None:
+    def __init__(self,userpublic_id,fullname, birth_of_day, gender,phone,address,position,about,skills,avatar_url = 'https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg') -> None:
         self.userpublic_id = userpublic_id
         self.fullname = fullname
         self.birth_of_day = birth_of_day
         self.gender = gender
         self.phone = phone
-        self.address = address
+        self.position = position
+        self.about = about
+        self.skills = skills
+        self.avatar_url = avatar_url
+        # position=data.get("position"),about=data.get("about"),skills=data.get("skills"),avatar_url=data.get("avatar_url")
+        # position = self.position,about = self.about,skills = self.skills,avatar_url = self.avatar_url
+        # self.address = address
+
     def obj_person(self):
-        obj = dict(id = self.id,fullname=self.fullname,birth_of_day = self.birth_of_day,gender = self.gender,phone = self.phone,address = self.address)
+        obj = dict(id = self.id,fullname=self.fullname,birth_of_day = self.birth_of_day,gender = self.gender,phone = self.phone,address = self.address,position = self.position,about = self.about,skills = self.skills,avatar_url = self.avatar_url)
         return obj
 
 

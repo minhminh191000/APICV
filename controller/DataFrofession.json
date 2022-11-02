@@ -9,7 +9,7 @@
     "job_details": [
       {
         "general_information": {
-          "salary": "15-25",
+          "salary": "10-20",
           "number_of_recruits": "1",
           "rank": "Nhân viên",
           "experience": "1",
@@ -60,7 +60,7 @@
     "job_details": [
       {
         "general_information": {
-          "salary": "29-100",
+          "salary": ">50",
           "number_of_recruits": "5",
           "rank": "Nhân viên",
           "experience": "2",
@@ -105,7 +105,7 @@
     "job_details": [
       {
         "general_information": {
-          "salary": "15-25",
+          "salary": "10-20",
           "number_of_recruits": "4",
           "rank": "Nhân viên",
           "experience": "Không yêu cầu kinh nghiệm",
@@ -153,7 +153,7 @@
     "job_details": [
       {
         "general_information": {
-          "salary": ">17",
+          "salary": "<10",
           "number_of_recruits": "10",
           "rank": "Nhân viên",
           "experience": "1",
@@ -204,7 +204,7 @@
     "job_details": [
       {
         "general_information": {
-          "salary": "~20",
+          "salary": "10-20",
           "number_of_recruits": "3",
           "rank": "Nhân viên",
           "experience": "1",
@@ -252,7 +252,7 @@
     "job_details": [
       {
         "general_information": {
-          "salary": "~40",
+          "salary": "20-30",
           "number_of_recruits": "3",
           "rank": "Nhân viên",
           "experience": "~1",
@@ -465,7 +465,7 @@
     "job_details": [
       {
         "general_information": {
-          "salary": "8.5-40",
+          "salary": "30-40",
           "number_of_recruits": "5",
           "rank": "Nhân viên",
           "experience": "~1",

@@ -32,7 +32,7 @@ class PersonalInformationController:
             if db.session.query(PersonalInformation).filter(PersonalInformation.userpublic_id == userpublic_id).first() is not None:
                 return jsonify({"status":404,"message":"already exist info"})
             else:
-                info = PersonalInformation(userpublic_id,fullname=data.get("fullname"),birth_of_day=data.get("birth_of_day"),gender=data.get("gender"),phone=data.get("phone"),address=data.get("address"))
+                info = PersonalInformation(userpublic_id,fullname=data.get("fullname"),birth_of_day=data.get("birth_of_day"),gender=data.get("gender"),phone=data.get("phone"),address=data.get("address"),position=data.get("position"),about=data.get("about"),skills=data.get("skills"),avatar_url=data.get("avatar_url"))
                 db.session.add(info)
                 db.session.commit()
                 return jsonify({"status":200,"message":"Create info"})
@@ -51,6 +51,10 @@ class PersonalInformationController:
                 info.email = data.get("gender")
                 info.phone = data.get("phone")
                 info.address = data.get("address")
+                info.position=data.get("position")
+                info.about=data.get("about")
+                info.skills=data.get("skills")
+                info.avatar_url=data.get("avatar_url")
                 db.session.commit()
                 return jsonify({"status":200,"message":"Updated successfully"})
             else:
