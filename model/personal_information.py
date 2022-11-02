@@ -28,7 +28,7 @@ class PersonalInformation(db.Model):
 
     information = db.relationship('Information', backref='personalinformation')
 
-    def __init__(self,userpublic_id,fullname, birth_of_day, gender,phone,address,position,about,skills,avatar_url = 'https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg') -> None:
+    def __init__(self,userpublic_id,fullname, birth_of_day, gender,phone,address,position,about,skills,avatar_url) -> None:
         self.userpublic_id = userpublic_id
         self.fullname = fullname
         self.birth_of_day = birth_of_day

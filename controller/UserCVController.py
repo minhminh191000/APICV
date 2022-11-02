@@ -24,7 +24,9 @@ class UserCVController:
             user = UserPublic(username=data.get("username"),email=data.get("email"),password=data.get("password"))
             db.session.add(user)
             db.session.commit()
-            info = PersonalInformation(user.id,fullname="nguyen van A",birth_of_day=None,gender="Nam",phone="0123456789",address="Ha Noi")
+            info = PersonalInformation(user.id,fullname="nguyen van A",birth_of_day=None,gender="Nam",phone="0123456789",address="Ha Noi",position=None,about=None,skills=None,avatar_url = 'https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg')
+            # info = PersonalInformation(userpublic_id,fullname=data.get("fullname"),birth_of_day=data.get("birth_of_day"),gender=data.get("gender"),phone=data.get("phone"),address=data.get("address"),position=data.get("position"),about=data.get("about"),skills=data.get("skills"),avatar_url=data.get("avatar_url"))
+
             db.session.add(info)
             db.session.commit()
             return jsonify({"status":200,"message":"Create USER"})
