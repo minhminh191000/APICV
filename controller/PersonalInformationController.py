@@ -4,14 +4,17 @@ from flask_jwt_extended import jwt_required,get_jwt_identity
 # from app import db,app
 from model.personal_information import *
 
+
+# {"name":"username","email":"minh2k3k4k@gmail.com","personal_information":"data cu"}
 class PersonalInformationController:
 
     @jwt_required()
     def get_info(self):
         userpublic_id = get_current_user().id
         info = db.session.query(PersonalInformation).filter(PersonalInformation.userpublic_id == userpublic_id).first()
+        data = {"name":get_current_user().username,"email":get_current_user().email,"personal_information":info.obj_person()}
         if info is not None:
-            return jsonify({"status":200,"data":info.obj_person(),"message":"records"})
+            return jsonify({"status":200,"data":data,"message":"records"})
         else:
             return jsonify({"status":200,"data":[],"message":"There are no records"})
         
@@ -55,6 +58,8 @@ class PersonalInformationController:
                 info.about=data.get("about")
                 info.skills=data.get("skills")
                 info.avatar_url=data.get("avatar_url")
+                info.resumeUrl=data.get("resumeUrl")
+                get_current_user().email = data.get("email")
                 db.session.commit()
                 return jsonify({"status":200,"message":"Updated successfully"})
             else:
