@@ -94,7 +94,9 @@ class JobInformation:
         page_id = request.args.get("page")
         result_per_page = request.args.get("result_per_page")
         job = []
+        flag = 0
         for i in request.args.keys():
+            flag = 1
             if i == 'name':
                 name = request.args.get("name")
                 job.append(self.check_job(i,name))
@@ -112,8 +114,15 @@ class JobInformation:
                 salary = request.args.get("salary")
                 job.append(self.check_job(i,salary))
 
-        obj_result = self.paging(page_id,result_per_page,job)
-        return jsonify({"status":200,"data":obj_result})
+        if flag == 1: 
+            obj_result = self.paging(page_id,result_per_page,job)
+            return jsonify({"status":200,"data":obj_result})
+        else:
+            with open('controller/DataFrofession.json', 'r') as openfile:
+                json_object = json.load(openfile)
+            obj_result = self.paging(page_id,result_per_page,json_object)
+            return jsonify({"status":200,"data":obj_result})
+
 
 
 
