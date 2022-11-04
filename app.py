@@ -13,7 +13,12 @@ from flask_jwt_extended import JWTManager
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import unset_jwt_cookies
 from flask_jwt_extended import set_access_cookies
+# from flask_jwt_extended import set_access_cookies
 # import redis
+
+from datetime import datetime
+from datetime import timedelta
+from datetime import timezone
 
 
 # ACCESS_EXPIRES = timedelta(hours=1)
@@ -24,16 +29,31 @@ flask_app = Flask(__name__)
 flask_app.config["JWT_TOKEN_LOCATION"] = ["headers", "cookies", "json", "query_string"]
 # Setup the Flask-JWT-Extended extension
 flask_app.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
+flask_app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 # flask_app.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_EXPIRES
 jwt = JWTManager(flask_app)
 
+
+@flask_app.after_request
+def refresh_expiring_jwts(response):
+    try:
+        exp_timestamp = get_jwt()["exp"]
+        now = datetime.now(timezone.utc)
+        target_timestamp = datetime.timestamp(now + timedelta(minutes=120))
+        if target_timestamp > exp_timestamp:
+            access_token = create_access_token(identity=get_jwt_identity())
+            set_access_cookies(response, access_token)
+        return response
+    except (RuntimeError, KeyError):
+        # Case where there is not a valid JWT. Just return the original response
+        return response
 
 
 @flask_app.route("/login", methods=["POST"])
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
-    print(username,password)
+    # print(username,password)
     login = db.session.query(UserPublic).filter(UserPublic.username == username).first()
     if login:
         if login.password == password:
