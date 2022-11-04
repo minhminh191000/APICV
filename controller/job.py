@@ -81,12 +81,10 @@ class JobInformation:
         with open('controller/DataFrofession.json', 'r') as openfile:
             json_object = json.load(openfile)
 
-        # print('json_object====',json_object)
-        # print('json_object====',type(json_object))
-        # print("id -------",id)
-
         for item in json_object:
             if int(item["id"]) == int(id): 
+                # print("item")
+                
                 return jsonify({"status":200,"data":item})
         return jsonify({"status":404,"data":[]})
         
