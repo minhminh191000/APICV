@@ -38,7 +38,8 @@ jwt = JWTManager(flask_app)
 def refresh_expiring_jwts(response):
     try:
         exp_timestamp = get_jwt()["exp"]
-        now = datetime.now(timezone.utc)
+        now = datetime.datetime.now(timezone.utc)
+        # now = datetime.now
         target_timestamp = datetime.timestamp(now + timedelta(minutes=120))
         if target_timestamp > exp_timestamp:
             access_token = create_access_token(identity=get_jwt_identity())
