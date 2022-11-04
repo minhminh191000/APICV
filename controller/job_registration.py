@@ -55,12 +55,18 @@ class JobRegistration:
     def delete(self):
         if request.method == "POST":
             data = request.get_json()
-            job = db.session.query(Job).filter(Job.id == data.get("id")).first()
-            if job is not None:
-                db.session.delete(job)
-                db.session.commit()
-                return jsonify({"status":200,"message":"Delete information successfully"})
-            return jsonify({"status":404,"message":"Delete information fail"})        
+            user = get_current_user().id
+            job = db.session.query(Job).filter(Job.job_id == data.get("job_id") , Job.user_id == user).all()
+            # User.query.filter(User.id == 123).delete()
+            print(job)
+            for i in job:
+                if job is not None:
+                    # db.session.delete(job)
+                    Job.query.filter(Job.id == i.id).delete()
+                    db.session.commit()
+                    
+            return jsonify({"status":200,"message":"Delete  successfully"})
+                # return jsonify({"status":404,"message":"Delete  fail"})    
 
     
 
@@ -118,17 +124,22 @@ class SaveJob:
             db.session.commit()
             return jsonify({"status":200,"message":"Create "})
 
+
     @jwt_required()
     def delete(self):
         if request.method == "POST":
             data = request.get_json()
-            
-            job = db.session.query(Sjob).filter(Sjob.id == data.get("id")).first()
-            if job is not None:
-                db.session.delete(job)
-                db.session.commit()
-                return jsonify({"status":200,"message":"Delete  successfully"})
-            return jsonify({"status":404,"message":"Delete  fail"})
+            user = get_current_user().id
+            job = db.session.query(Sjob).filter(Sjob.job_id == data.get("job_id") , Sjob.user_id == user).all()
+            # User.query.filter(User.id == 123).delete()
+            print(job)
+            for i in job:
+                if job is not None:
+                    # db.session.delete(job)
+                    Sjob.query.filter(Sjob.id == i.id).delete()
+                    db.session.commit()
+                    
+            return jsonify({"status":200,"message":"Delete  successfully"})
 
     @jwt_required()
     def check_save_job(self):
@@ -169,7 +180,7 @@ jobregistration = JobRegistration()
 # # app.ad
 app.add_enpoint("/jobinformation/create","create jobregistration",jobregistration.create,methods=["POST"])
 app.add_enpoint("/jobinformation/get","get jobregistration",jobregistration.get_data,methods=["GET"])
-app.add_enpoint("/jobinformation/detele","detele jobregistration",jobregistration.delete,methods=["POST"])
+app.add_enpoint("/jobinformation/delete","delete jobregistration",jobregistration.delete,methods=["POST"])
 # app.add_enpoint("/jobinformation/check_save_job","check_save_job",saveJob.check_save_job,methods=["POST"])
 
 
@@ -177,7 +188,7 @@ saveJob = SaveJob()
 app.add_enpoint("/saveJob/create","create saveJob",saveJob.create,methods=["POST"])
 app.add_enpoint("/saveJob/check_save_job","check_save_job",saveJob.check_save_job,methods=["POST"])
 app.add_enpoint("/saveJob/get","get saveJob",saveJob.get_data,methods=["GET"])
-app.add_enpoint("/saveJob/detele","detele saveJob",saveJob.delete,methods=["POST"])
+app.add_enpoint("/saveJob/delete","delete saveJob",saveJob.delete,methods=["POST"])
 
             
 
