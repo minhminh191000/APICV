@@ -1,6 +1,7 @@
 from app import app ,db,get_current_user
 from flask import jsonify,request
 from flask_jwt_extended import jwt_required,get_jwt_identity
+import random
 
 import json
 # from app import db,app
@@ -17,7 +18,16 @@ class JobInformation:
         obj_result = self.paging(page_id,result_per_page,json_object)
         return jsonify({"status":200,"data":obj_result})
     
-
+    def get_random(self):
+        page_id = request.args.get("page")
+        result_per_page = request.args.get("result_per_page")
+        with open('controller/DataFrofession.json', 'r') as openfile:
+            json_object = json.load(openfile)
+        # print(json_object) 
+        random.shuffle(json_object)
+        # print(json_object)
+        obj_result = self.paging(page_id,result_per_page,json_object)
+        return jsonify({"status":200,"data":obj_result})
 
 
 
@@ -257,6 +267,7 @@ jobinformation = JobInformation()
 # app.add_enpoint("/infomation/create","create_infomation",infomation.create,methods=["POST"])
 # app.add_enpoint("/infomation/update","update_infomation",infomation.update,methods=["PUT"])
 app.add_enpoint("/jobinformation/get_all","get_all",jobinformation.get_all_paging,methods=["GET"])
+app.add_enpoint("/jobinformation/get_random","get_random",jobinformation.get_random,methods=["GET"])
 app.add_enpoint("/jobinformation/detail_job/<int:id>","detail_job",jobinformation.detail_job,methods=["GET"])
 app.add_enpoint("/jobinformation/search_job","search_job",jobinformation.search_job,methods=["GET"])
 # app.add_enpoint("/jobinformation/get_all","get_all",jobinformation.get_all_paging,methods=["GET"])

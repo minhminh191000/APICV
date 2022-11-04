@@ -16,7 +16,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": [
+        "Work_location": [
           "Hà Nội: Số 114 Trần Vỹ, Phường Mai Dịch, Quận Cầu Giấy, Thành phố Hà Nội, Việt Nam, Cầu Giấy"
         ],
         "location": ["HaNoi"]
@@ -67,7 +67,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": [
+        "Work_location": [
           "Hồ Chí Minh: Lầu 8, 1A Phạm Ngọc Thạch, Bến Nghé, Quận 1"
         ],
         "location": ["HoChiMinh"]
@@ -112,7 +112,7 @@
           "working_form": "Bán thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": [
+        "Work_location": [
           "Hà Nội: Tầng 7, MIPEC 229 Tây Sơn, Đống Đa, Hà Nội, Đống Đa"
         ],
         "location": ["HaNoi"]
@@ -160,7 +160,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": [
+        "Work_location": [
           "Hà Nội: VPBank Nam Từ Liêm, Nam Từ Liêm",
           "Hà Nội: VPBank Ba Đình, Ba Đình",
           "Hà Nội: VPBank Cầu Giấy, Cầu Giấy",
@@ -211,7 +211,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Nữ"
         },
-        "Work location": [
+        "Work_location": [
           "Hà Nội: Tòa nhà N03-T1 Ngoại Giao Đoàn, Bắc Từ Liêm, Hà Nội, Bắc Từ Liêm",
           "Hà Nội: Tòa nhà Technosoft, ngõ 15 Duy Tân, Cầu Giấy, Hà Nội, Cầu Giấy"
         ],
@@ -259,7 +259,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": ["Hà Nội: Bắc Từ Liêm"],
+        "Work_location": ["Hà Nội: Bắc Từ Liêm"],
         "location": ["HaNoi"]
       }
     ],
@@ -306,7 +306,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": [
+        "Work_location": [
           "Hà Nội: Capital Place, No. 29 Lieu Giai Street, Ngoc Khanh Ward, Ba Đình",
           "Hồ Chí Minh: Etown 2 Building, 364 Cong Hoa St, Tân Bình"
         ],
@@ -365,7 +365,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": [
+        "Work_location": [
           "Hồ Chí Minh: Etown 2 Building, 364 Cong Hoa St,Tan Binh District, Ho Chi Minh City, Viet Nam"
         ],
         "location": ["HoChiMinh"]
@@ -412,7 +412,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": [
+        "Work_location": [
           "Hồ Chí Minh: Số 364, Đường Cộng Hòa, Phường 13, Quận Tân Bình, Thành phố Hồ Chí Minh, Việt Nam"
         ],
         "location": ["HoChiMinh"]
@@ -472,7 +472,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": ["Hà Nội: Số 4, ngõ 183 Hoàng Văn Thái, Thanh Xuân"],
+        "Work_location": ["Hà Nội: Số 4, ngõ 183 Hoàng Văn Thái, Thanh Xuân"],
         "location": ["HaNoi"]
       }
     ],
@@ -522,7 +522,7 @@
           "working_form": "Toàn thời gian",
           "gender": "Không yêu cầu"
         },
-        "Work location": [
+        "Work_location": [
           "Hà Nội: Gelex Tower, 52 Le Dai Hanh, Hai Ba Trung District, Ha Noi, Hai Bà Trưng"
         ],
         "location": ["HaNoi"]
