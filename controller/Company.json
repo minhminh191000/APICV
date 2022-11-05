@@ -20,7 +20,11 @@
     "name": "Công Ty TNHH Bảo Hiểm Nhân Thọ AIA (Việt Nam)",
     "detail": {
       "address": ["Ha Noi"],
-      "description": "Top Công ty Bảo hiểm hàng đầu Việt Nam."
+      "description": "Top Công ty Bảo hiểm hàng đầu Việt Nam.",
+      "phone_number": "033 444 777",
+      "email":"aiaVN@gmail.com",
+      "website":"aia.ncc.com"
+
     }
   },
   {
@@ -28,6 +32,9 @@
     "name": "Công ty Cổ phần MISA",
     "detail": {
       "address": ["Ha Noi", "Ho Chi Minh"],
+      "phone_number": "033 444 777",
+      "email":"aiaVN@gmail.com",
+      "website":"aia.ncc.com",
       "description": "MISA Jointstock Company is one of the leading software companies in Vietnam. We develop and offer management softwares for small and medium enterprises, government and individual utility applications."
     }
   },
@@ -36,6 +43,9 @@
     "name": "CÔNG TY TNHH BOSCH GLOBAL SOFTWARE TECHNOLOGIES",
     "detail": {
       "address": ["Ha Noi", "Ho Chi Minh"],
+      "phone_number": "033 444 777",
+      "email":"aiaVN@gmail.com",
+      "website":"aia.ncc.com",
       "description": "The Bosch Group is a leading global supplier of technology and services. It employs roughly 394,500 associates worldwide."
     }
   },
@@ -44,6 +54,9 @@
     "name": "CÔNG TY TNHH ABALI VIỆT NAM",
     "detail": {
       "address": ["Ha Noi"],
+      "phone_number": "033 444 777",
+      "email":"aiaVN@gmail.com",
+      "website":"aia.ncc.com",
       "description": "Công ty TNHH Abali Việt Nam hoạt động chính là kinh doanh các sản phẩm bảo vệ sức khỏe với sứ mệnh tiên phong trong việc đưa các sản phẩm Made in Vietnam ra thị trường quốc tế"
     }
   },
@@ -52,6 +65,9 @@
     "name": "Công ty Cổ phần Tập đoàn GELEX",
     "detail": {
       "address": ["Ha Noi"],
+      "phone_number": "033 444 777",
+      "email":"aiaVN@gmail.com",
+      "website":"aia.ncc.com",
       "description": "GELEX GROUP - một trong những Tập đoàn đa ngành lớn nhất Việt Nam, dẫn đầu trong các lĩnh vực sản xuất công nghiệp"
     }
   }
