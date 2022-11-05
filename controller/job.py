@@ -116,12 +116,12 @@ class JobInformation:
 
         if flag == 1: 
             obj_result = self.paging(page_id,result_per_page,job)
-            return jsonify({"status":200,"data":obj_result})
+            return obj_result
         else:
             with open('controller/DataFrofession.json', 'r') as openfile:
                 json_object = json.load(openfile)
             obj_result = self.paging(page_id,result_per_page,json_object)
-            return jsonify({"status":200,"data":obj_result})
+            return obj_result
 
 
 
@@ -135,7 +135,7 @@ class JobInformation:
         with open('controller/Company.json', 'r') as openfile:
             json_object = json.load(openfile)
         obj_result = self.paging(page_id,result_per_page,json_object)
-        return jsonify({"status":200,"data":obj_result})
+        return obj_result
 
 
     def get_detail(self,id):
