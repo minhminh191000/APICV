@@ -16,7 +16,7 @@ class JobInformation:
             json_object = json.load(openfile)
 
         obj_result = self.paging(page_id,result_per_page,json_object)
-        return jsonify({"status":200,"data":obj_result})
+        return obj_result
     
     def get_random(self):
         page_id = request.args.get("page")
@@ -93,26 +93,31 @@ class JobInformation:
     def search_job(self):
         page_id = request.args.get("page")
         result_per_page = request.args.get("result_per_page")
-        job = []
+        # job = []
         flag = 0
         for i in request.args.keys():
             flag = 1
             if i == 'name':
                 name = request.args.get("name")
-                job.append(self.check_job(i,name))
+                # job.append(self.check_job(i,name))
+                job = self.check_job(i,name)
 
             if i == "location":
                 location = request.args.get("location")
-                job.append(self.check_job(i,location))
+                # job.append(self.check_job(i,location))
+                job = self.check_job(i,location)
 
 
             if i == "profession":
                 profession_id = request.args.get("profession")
-                job.append(self.check_job(i,profession_id))
+                # job.append(self.check_job(i,profession_id))
+                job = self.check_job(i,profession_id)
+                
                 
             if i == "salary":
                 salary = request.args.get("salary")
-                job.append(self.check_job(i,salary))
+                # job.append(self.check_job(i,salary))
+                job = self.check_job(i,salary)
 
         if flag == 1: 
             obj_result = self.paging(page_id,result_per_page,job)
@@ -254,6 +259,7 @@ class JobInformation:
         page = int(page_id) if page_id is not None else 1
         result_per_page = int(result_per_page) if result_per_page is not None else 5
         data_job = json_object[(page-1)*result_per_page:(page-1)*result_per_page + result_per_page] 
+        print(data_job)
         obj_result = {
             'page':page,
             "result_per_page":result_per_page,
