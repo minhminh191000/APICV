@@ -4,6 +4,9 @@
     "name": "CÔNG TY CỔ PHẦN DỊCH VỤ VÀ PHÁT TRIỂN CÔNG NGHỆ BEAE VIỆT NAM",
     "detail": {
       "address": ["Ha Noi"],
+      "phone_number": "033 444 777",
+      "email":"aiaVN@gmail.com",
+      "website":"aia.ncc.com",
       "description": "Chúng tôi đã tạo ra nhiều giải pháp công nghệ để hỗ trợ những doanh nghiệp kinh doanh trực tuyến phát triển, biến việc kinh doanh trực tuyến trở nên dễ dàng hơn mọi đối tượng trên toàn thế giới"
     }
   },
@@ -12,6 +15,9 @@
     "name": "CÔNG TY TNHH MANULIFE",
     "detail": {
       "address": ["Ha Noi"],
+      "phone_number": "033 444 777",
+      "email":"aiaVN@gmail.com",
+      "website":"aia.ncc.com",
       "description": "Bảo hiểm nhân thọ Manulife sẽ bảo vệ bạn và những người thân yêu trước những rủi ro tài chính như chi trả tiền viện phí để điều trị tại bệnh viện quốc tế tại Việt Nam."
     }
   },
